@@ -9,6 +9,7 @@ const Sharecard = () => {
   const [file, setfile] = useState("");
   const [progress, setprogress] = useState("");
   const [showprogress, setshowprogress] = useState("false");
+  const [active, setactive] = useState("Link");
 
   const upload = () => {
     const storageref = ref(storage, `/files/${Date.now()}${file.name}`);
@@ -70,6 +71,35 @@ const Sharecard = () => {
                   </span>
                 </div>
               </label>
+              <div className="flex flex-row items-center justify-between space-x-3">
+                <span className="text-neutral-800 font-medium text-base">
+                  Get link using :
+                </span>
+                <div
+                  onClick={() => {
+                    setactive("Email");
+                  }}
+                  className={
+                    active === "Email"
+                      ? "bg-orange-400 hover:bg-orange-500 rounded-lg px-2 py-1 text-sm font-semibold text-white cursor-pointer"
+                      : "px-2 py-1 text-orange-400 cursor-pointer"
+                  }
+                >
+                  Email
+                </div>
+                <div
+                  onClick={() => {
+                    setactive("Link");
+                  }}
+                  className={
+                    active === "Link"
+                      ? "bg-orange-400 hover:bg-orange-500 rounded-lg px-2 py-1 text-sm font-semibold text-white cursor-pointer"
+                      : "px-2 py-1 text-orange-400 cursor-pointer"
+                  }
+                >
+                  <span>Link</span>
+                </div>
+              </div>
               <span className="truncate text-neutral-800 font-medium text-base py-4">
                 {file.name}
               </span>
@@ -91,7 +121,7 @@ const Sharecard = () => {
                 <></>
               )}
 
-              <div className="flex items-center justify-between space-x-2">
+              {/* <div className="flex items-center justify-between space-x-2">
                 <input
                   type="text"
                   defaultValue={link}
@@ -118,7 +148,7 @@ const Sharecard = () => {
                     />
                   </svg>
                 </div>
-              </div>
+              </div> */}
             </div>
           </div>
         </div>
