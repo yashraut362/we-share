@@ -4,6 +4,7 @@ import { db, storage } from "../utils/firebase";
 import { getDownloadURL, ref, uploadBytesResumable } from "firebase/storage";
 import RounedProgressbar from "./widget/RounedProgressbar";
 import Image from "next/image";
+import Finalscreen from "./widget/Finalscreen";
 
 const Sharecard = () => {
   const [link, setlink] = useState("");
@@ -195,7 +196,7 @@ const Sharecard = () => {
                 </div>
               </>
             ) : (
-              <>{link}</>
+              <Finalscreen link={link} />
             )}
           </div>
         </div>
