@@ -3,7 +3,7 @@ import { addDoc, collection } from "firebase/firestore";
 import { db, storage } from "../utils/firebase";
 import { getDownloadURL, ref, uploadBytesResumable } from "firebase/storage";
 
-function homepage() {
+function Homepage() {
   const [link, setlink] = useState("");
   const [file, setfile] = useState("");
   const [progress, setprogress] = useState("");
@@ -61,4 +61,4 @@ function homepage() {
   );
 }
 
-export default homepage;
+export default Homepage;

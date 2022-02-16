@@ -1,7 +1,7 @@
 import Image from "next/image";
 import { useState } from "react";
 
-const finalscreen = ({ link }) => {
+const Finalscreen = ({ link }) => {
   const [copy, setcopy] = useState(false);
   return (
     <div className="flex flex-col items-center overflow-hidden">
@@ -15,13 +15,13 @@ const finalscreen = ({ link }) => {
         width="330"
         height="330"
       />
-      <div class="flex items-center max-w-md mx-auto bg-orange-100 rounded-lg ">
-        <div class="w-full">
+      <div className="flex items-center max-w-md mx-auto bg-orange-100 rounded-lg ">
+        <div className="w-full">
           <input
             disabled
             type="text"
             value={link}
-            class="w-full px-4 py-1 bg-orange-100  text-gray-800 rounded-full focus:outline-none"
+            className="w-full px-4 py-1 bg-orange-100  text-gray-800 rounded-full focus:outline-none"
             placeholder="search"
           />
         </div>
@@ -31,7 +31,7 @@ const finalscreen = ({ link }) => {
               setcopy(true);
               navigator.clipboard.writeText(link);
             }}
-            class="flex items-center bg-orange-500 justify-center w-12 h-12 text-white rounded-r-lg"
+            className="flex items-center bg-orange-500 justify-center w-12 h-12 text-white rounded-r-lg"
           >
             <svg
               xmlns="http://www.w3.org/2000/svg"
@@ -61,4 +61,4 @@ const finalscreen = ({ link }) => {
   );
 };
 
-export default finalscreen;
+export default Finalscreen;
