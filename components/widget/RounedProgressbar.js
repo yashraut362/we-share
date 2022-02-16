@@ -22,7 +22,12 @@ const RounedProgressbar = (props) => {
           <CircularProgressbar
             value={props.progress}
             text={`${roundedValue}%`}
-            styles={buildStyles({ pathTransition: "none" })}
+            // styles={{ root: {}, path: { stroke: "#fb923c" } }}
+            styles={buildStyles({
+              textColor: "#fb923c",
+              pathColor: "#fdba74",
+              trailColor: "#ffedd5",
+            })}
           />
         );
       }}
