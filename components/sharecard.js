@@ -5,6 +5,7 @@ import { getDownloadURL, ref, uploadBytesResumable } from "firebase/storage";
 import RounedProgressbar from "./widget/RounedProgressbar";
 import Image from "next/image";
 import Finalscreen from "./widget/Finalscreen";
+import Navbar from "./navbar";
 
 const Sharecard = () => {
   const [link, setlink] = useState("");
@@ -121,22 +122,27 @@ const Sharecard = () => {
                               </span>
                             </label>
                           </p>
+                          <div className="py-5">
+                            <Navbar />
+                          </div>
                         </div>
                       ) : (
                         <>
-                          <Image
-                            className="pt-5"
-                            src="/assets/images/share.gif"
-                            alt="me"
-                            width="330"
-                            height="330"
-                          />
+                          <div className="py-6">
+                            <Image
+                              src="/assets/images/share.gif"
+                              alt="me"
+                              width="330"
+                              height="330"
+                            />
+                          </div>
+                          <Navbar />
                         </>
                       )}
                     </>
                   )}
 
-                  <div className="flex flex-row items-center justify-between space-x-3 pt-10">
+                  {/* <div className="flex flex-row items-center justify-between space-x-3 pt-10">
                     <span className="text-neutral-800 font-medium text-base">
                       Get link using :
                     </span>
@@ -164,7 +170,7 @@ const Sharecard = () => {
                     >
                       <span>Link</span>
                     </div>
-                  </div>
+                  </div> */}
                   {/* <div className="flex items-center justify-between space-x-2">
                 <input
                   type="text"

@@ -10,10 +10,10 @@ const Navbar = () => {
         height="50"
       /> */}
       <div className="flex flex-row text-xl font-semibold ">
-        <span className="bg-orange-600 py-2 px-2  text-white rounded-l-lg">
+        <span className="bg-orange-600 py-2 px-2  text-orange-50 rounded-l-lg">
           We
         </span>
-        <span className="bg-white py-2 px-2 text-orange-600 rounded-r-lg">
+        <span className="bg-orange-50 py-2 px-2 text-orange-600 rounded-r-lg">
           Share
         </span>
       </div>
