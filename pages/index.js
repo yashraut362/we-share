@@ -1,9 +1,15 @@
-import Sharecard from "../components/sharecard";
+import EmailContextProvider from "../context/EmailContext";
+import FileContextProvider from "../context/FileContext";
+import Sharecard from "../components/Sharecard";
 
 export default function Home() {
   return (
     <div>
-      <Sharecard></Sharecard>
+      <FileContextProvider>
+        <EmailContextProvider>
+          <Sharecard />
+        </EmailContextProvider>
+      </FileContextProvider>
     </div>
   );
 }
