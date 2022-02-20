@@ -1,12 +1,22 @@
-import React, { useEffect, useState } from "react";
+import React, { createContext, useState } from "react";
 import { addDoc, collection } from "firebase/firestore";
 import { db, storage } from "../utils/firebase";
 import { getDownloadURL, ref, uploadBytesResumable } from "firebase/storage";
 
-function Homepage() {
-  const [link, setlink] = useState("");
+export const FileContext = createContext();
+
+const FileContextProvider = (props) => {
+  const [showprogress, setshowprogress] = useState("false");
   const [file, setfile] = useState("");
-  const [progress, setprogress] = useState("");
+  const [progress, setprogress] = useState(100);
+  const [link, setlink] = useState("");
+
+  const changefile = (file) => {
+    setfile(file);
+  };
+  const changelink = (link) => {
+    setlink(link);
+  };
 
   const upload = () => {
     const storageref = ref(storage, `/files/${Date.now()}${file.name}`);
@@ -17,48 +27,48 @@ function Homepage() {
         const progressPercent = Math.round(
           (snapshot.bytesTransferred / snapshot.totalBytes) * 100
         );
-        setprogress(progressPercent);
+        setshowprogress("true");
+        setprogress(progressPercent.toString());
       },
       (err) => {
         console.log(err);
       },
       () => {
-        setfile("");
         getDownloadURL(uploadedfile.snapshot.ref).then((url) => {
           const fileurlref = collection(db, "Files");
           addDoc(fileurlref, {
             url: url,
           })
             .then(() => {
-              console.log(url);
-              console.log("file uploaded successfully");
+              setlink(url);
+              setshowprogress("false");
               setprogress(0);
             })
             .catch((err) => {
               console.log(err);
+              setshowprogress("false");
             });
         });
       }
     );
+    setshowprogress("false");
   };
-  return (
-    <div>
-      <input
-        type="file"
-        onChange={(e) => {
-          setfile(e.target.files[0]);
-        }}
-      />
-      <button
-        className="bg-yellow-200 p-2 border-yellow-400  rounded-lg"
-        onClick={upload}
-      >
-        <span className="text-orange-500 font-semibold text-base">Upload</span>
-      </button>
-      <span>{link}</span>
-      <span>{progress}</span>
-    </div>
-  );
-}
 
-export default Homepage;
+  return (
+    <FileContext.Provider
+      value={{
+        file,
+        changefile,
+        progress,
+        upload,
+        showprogress,
+        link,
+        changelink,
+      }}
+    >
+      {props.children}
+    </FileContext.Provider>
+  );
+};
+
+export default FileContextProvider;
