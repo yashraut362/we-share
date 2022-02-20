@@ -1,6 +1,5 @@
 import React, { useContext, useState } from "react";
 import Finalscreen from "./Finalscreen";
-import Navbar from "./navbar";
 import { FileContext } from "../context/FileContext";
 import Fileselector from "./Fileselector";
 import UploadFile from "./UploadFile";
