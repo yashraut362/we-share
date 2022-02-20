@@ -8,8 +8,7 @@ export default function Home() {
     <div>
       <FileContextProvider>
         <EmailContextProvider>
-          {/* <Sharecard /> */}
-          <Sendemail />
+          <Sharecard />
         </EmailContextProvider>
       </FileContextProvider>
     </div>

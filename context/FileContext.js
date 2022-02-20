@@ -14,6 +14,9 @@ const FileContextProvider = (props) => {
   const changefile = (file) => {
     setfile(file);
   };
+  const changelink = (link) => {
+    setlink(link);
+  };
 
   const upload = () => {
     const storageref = ref(storage, `/files/${Date.now()}${file.name}`);
@@ -53,7 +56,15 @@ const FileContextProvider = (props) => {
 
   return (
     <FileContext.Provider
-      value={{ file, changefile, progress, upload, showprogress, link }}
+      value={{
+        file,
+        changefile,
+        progress,
+        upload,
+        showprogress,
+        link,
+        changelink,
+      }}
     >
       {props.children}
     </FileContext.Provider>

@@ -1,8 +1,10 @@
 import Image from "next/image";
-import { useState } from "react";
+import { useState, useContext } from "react";
 import Navbar from "./navbar";
+import { FileContext } from "../context/FileContext";
 
 const Finalscreen = ({ link }) => {
+  const { changefile, changelink } = useContext(FileContext);
   const [copy, setcopy] = useState(false);
   const [active, setactive] = useState("Link");
   return (
@@ -64,7 +66,7 @@ const Finalscreen = ({ link }) => {
       ) : (
         <></>
       )}
-      <div className="flex flex-row items-center justify-between space-x-3 pt-10">
+      {/* <div className="flex flex-row items-center justify-between space-x-3 pt-10">
         <span className="text-neutral-800 font-medium text-base">
           Get link using :
         </span>
@@ -92,7 +94,16 @@ const Finalscreen = ({ link }) => {
         >
           <span>Link</span>
         </div>
-      </div>
+      </div> */}
+      <span
+        onClick={() => {
+          changefile("");
+          changelink("");
+        }}
+        className="text-neutral-700 font-medium text-lg cursor-pointer py-2"
+      >
+        Go back to Home
+      </span>
       <Navbar />
     </div>
   );

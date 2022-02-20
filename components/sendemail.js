@@ -1,8 +1,14 @@
-import React, { useRef } from "react";
+import React, { useRef, useState } from "react";
 import emailjs from "@emailjs/browser";
 
 const Sendemail = () => {
   const form = useRef();
+  const [email, setemail] = useState("");
+  const template = {
+    user_name: "User",
+    user_email: email,
+    message: "Someone share a link with you from weshare !",
+  };
   const sendEmail = (e) => {
     e.preventDefault();
     emailjs
