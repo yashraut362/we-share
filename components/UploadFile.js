@@ -6,18 +6,19 @@ import { FileContext } from "../context/FileContext";
 const UploadFile = () => {
   const { file, changefile, upload } = useContext(FileContext);
   return (
-    <div className=" flex flex-col items-center justify-center">
-      <span className="truncate text-neutral-800 font-medium text-base pt-3">
+    <div className=" flex flex-col items-center justify-center space-y-4">
+      <span className="truncate text-neutral-700 font-medium text-xl pt-3">
         Your File to the moon !
       </span>
-      <Image
-        className="pt-5"
-        src="/assets/images/upload.gif"
-        alt="me"
-        width="150"
-        height="150"
-      />
-      <span className="truncate text-neutral-800 font-medium text-base pt-2">
+      <div className="pt-2">
+        <Image
+          src="/assets/images/upload.gif"
+          alt="me"
+          width="150"
+          height="150"
+        />
+      </div>
+      <span className="truncate text-neutral-800 font-semibold text-base pt-2">
         {file.name}
       </span>
       <button
@@ -40,7 +41,7 @@ const UploadFile = () => {
           <span className="text-orange-300 cursor-pointer">click here</span>
         </label>
       </p>
-      <div className="py-5">
+      <div className="py-3">
         <Navbar />
       </div>
     </div>

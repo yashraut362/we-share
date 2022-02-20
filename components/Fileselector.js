@@ -19,8 +19,8 @@ const Fileselector = () => {
           <div className="bg-orange-500 hover:bg-orange-600 rounded-full px-5 py-3">
             <span className="text-white font-semibold text-2xl">+</span>
           </div>
-          <span className="text-neutral-800 font-normal text-xl">
-            Upload file here
+          <span className="text-neutral-700 font-medium text-xl">
+            Upload File Here
           </span>
         </div>
       </label>
