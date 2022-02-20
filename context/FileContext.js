@@ -8,7 +8,7 @@ export const FileContext = createContext();
 const FileContextProvider = (props) => {
   const [showprogress, setshowprogress] = useState("false");
   const [file, setfile] = useState("");
-  const [progress, setprogress] = useState("");
+  const [progress, setprogress] = useState(100);
   const [link, setlink] = useState("");
 
   const changefile = (file) => {
