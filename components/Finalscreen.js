@@ -2,24 +2,30 @@ import Image from "next/image";
 import { useState, useContext } from "react";
 import Navbar from "./navbar";
 import { FileContext } from "../context/FileContext";
+import { EmailContext } from "../context/EmailContext";
 
 const Finalscreen = ({ link }) => {
   const { changefile, changelink } = useContext(FileContext);
+  const { name, email, addreceivername, addreceiveremail } =
+    useContext(EmailContext);
   const [copy, setcopy] = useState(false);
   const [active, setactive] = useState("Link");
+  const [sendmail, setsendmail] = useState(false);
+
   return (
     <div className="flex flex-col items-center overflow-hidden">
       <span className="truncate text-neutral-800 font-medium text-base pt-3">
         Your File Landed on moon !
       </span>
-      <Image
-        src="/assets/images/download.gif"
-        alt="me"
-        width="330"
-        height="290"
-      />
+
       {active === "Link" ? (
         <>
+          <Image
+            src="/assets/images/download.gif"
+            alt="me"
+            width="330"
+            height="290"
+          />
           <div className="flex items-center max-w-md mx-auto bg-orange-100 rounded-lg ">
             <div className="w-full">
               <input
@@ -64,9 +70,42 @@ const Finalscreen = ({ link }) => {
           )}
         </>
       ) : (
-        <></>
+        <form className="pt-5">
+          <h2 className="text-center py-1 pb-4 font-semibold text-lg">
+            Add receiver's info
+          </h2>
+          <div className="flex flex-col space-y-5">
+            <div className="flex items-center space-x-3 ">
+              <span>Name</span>
+              <input
+                className="border-2 border-orange-500 p-1 rounded-lg placeholder-slate-400"
+                type="text"
+                value=""
+                placeholder="John doe"
+                required
+              />
+            </div>
+            <div className="flex items-center space-x-3">
+              <span>Email</span>
+              <input
+                className="border-2 border-orange-500 p-1 rounded-lg placeholder-slate-400"
+                type="email"
+                value=""
+                placeholder="name@email.com"
+                required
+              />
+            </div>
+            <div className="flex items-center justify-center pt-5">
+              <input
+                type="submit"
+                value="Submit"
+                className="bg-orange-400  rounded-full text-white font-semibold px-4 py-1.5"
+              />
+            </div>
+          </div>
+        </form>
       )}
-      {/* <div className="flex flex-row items-center justify-between space-x-3 pt-10">
+      <div className="flex flex-row items-center justify-between space-x-3 pt-10">
         <span className="text-neutral-800 font-medium text-base">
           Get link using :
         </span>
@@ -94,17 +133,24 @@ const Finalscreen = ({ link }) => {
         >
           <span>Link</span>
         </div>
-      </div> */}
+      </div>
       <span
         onClick={() => {
           changefile("");
           changelink("");
         }}
-        className="text-neutral-700 font-medium text-lg cursor-pointer py-2"
+        className="text-neutral-700 font-medium text-lg cursor-pointer py-2 flex items-center space-x-2"
       >
-        Go back to Home
+        <svg
+          xmlns="http://www.w3.org/2000/svg"
+          className="h-5 w-5"
+          viewBox="0 0 20 20"
+          fill="currentColor"
+        >
+          <path d="M10.707 2.293a1 1 0 00-1.414 0l-7 7a1 1 0 001.414 1.414L4 10.414V17a1 1 0 001 1h2a1 1 0 001-1v-2a1 1 0 011-1h2a1 1 0 011 1v2a1 1 0 001 1h2a1 1 0 001-1v-6.586l.293.293a1 1 0 001.414-1.414l-7-7z" />
+        </svg>
+        <span>Go back to Home</span>
       </span>
-      <Navbar />
     </div>
   );
 };
