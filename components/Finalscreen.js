@@ -1,13 +1,18 @@
 import Image from "next/image";
 import { useState, useContext } from "react";
-import Navbar from "./navbar";
 import { FileContext } from "../context/FileContext";
 import { EmailContext } from "../context/EmailContext";
 
 const Finalscreen = ({ link }) => {
   const { changefile, changelink } = useContext(FileContext);
-  const { name, email, addreceivername, addreceiveremail } =
-    useContext(EmailContext);
+  const {
+    name,
+    email,
+    success,
+    addreceivername,
+    addreceiveremail,
+    submitdetailstoserver,
+  } = useContext(EmailContext);
   const [copy, setcopy] = useState(false);
   const [active, setactive] = useState("Link");
   const [sendmail, setsendmail] = useState(false);
@@ -70,7 +75,13 @@ const Finalscreen = ({ link }) => {
           )}
         </>
       ) : (
-        <form className="pt-5">
+        <form
+          className="pt-5"
+          onSubmit={(e) => {
+            submitdetailstoserver(name, email, link);
+            e.preventDefault();
+          }}
+        >
           <h2 className="text-center py-1 pb-4 font-semibold text-lg">
             Add receiver's info
           </h2>
@@ -80,7 +91,11 @@ const Finalscreen = ({ link }) => {
               <input
                 className="border-2 border-orange-500 p-1 rounded-lg placeholder-slate-400"
                 type="text"
-                value=""
+                value={name}
+                onChange={(e) => {
+                  addreceivername(e.target.value);
+                }}
+                maxLength="30"
                 placeholder="John doe"
                 required
               />
@@ -90,16 +105,28 @@ const Finalscreen = ({ link }) => {
               <input
                 className="border-2 border-orange-500 p-1 rounded-lg placeholder-slate-400"
                 type="email"
-                value=""
+                value={email}
+                onChange={(e) => {
+                  addreceiveremail(e.target.value);
+                }}
+                maxLength="30"
                 placeholder="name@email.com"
                 required
               />
             </div>
+
+            {success ? (
+              <span className="truncate text-orange-500 font-medium text-base pt-3">
+                {success}
+              </span>
+            ) : (
+              <></>
+            )}
             <div className="flex items-center justify-center pt-5">
               <input
                 type="submit"
                 value="Submit"
-                className="bg-orange-400  rounded-full text-white font-semibold px-4 py-1.5"
+                className="bg-orange-400 cursor-pointer rounded-full text-white font-semibold px-4 py-1.5"
               />
             </div>
           </div>
