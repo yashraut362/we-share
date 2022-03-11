@@ -11,6 +11,7 @@ const Finalscreen = ({ link }) => {
     success,
     addreceivername,
     addreceiveremail,
+    setsuccess,
     submitdetailstoserver,
   } = useContext(EmailContext);
   const [copy, setcopy] = useState(false);
@@ -116,19 +117,23 @@ const Finalscreen = ({ link }) => {
             </div>
 
             {success ? (
-              <span className="truncate text-orange-500 font-medium text-base pt-3">
-                {success}
-              </span>
+              <>
+                <span className="truncate text-orange-500 font-medium text-base pt-3">
+                  {success}
+                </span>
+                <span className="truncate text-orange-500 font-medium text-base pt-3">
+                  Click on home to reuse the service !
+                </span>
+              </>
             ) : (
-              <></>
+              <div className="flex items-center justify-center pt-5">
+                <input
+                  type="submit"
+                  value="Submit"
+                  className="bg-orange-400 cursor-pointer rounded-full text-white font-semibold px-4 py-1.5"
+                />
+              </div>
             )}
-            <div className="flex items-center justify-center pt-5">
-              <input
-                type="submit"
-                value="Submit"
-                className="bg-orange-400 cursor-pointer rounded-full text-white font-semibold px-4 py-1.5"
-              />
-            </div>
           </div>
         </form>
       )}
@@ -165,6 +170,7 @@ const Finalscreen = ({ link }) => {
         onClick={() => {
           changefile("");
           changelink("");
+          setsuccess("");
         }}
         className="text-neutral-700 font-medium text-lg cursor-pointer py-2 flex items-center space-x-2"
       >

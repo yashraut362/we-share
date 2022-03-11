@@ -22,10 +22,10 @@ const EmailContextProvider = (props) => {
         link: link,
       })
       .then((response) => {
+        setemail("");
+        setname("");
+        setname("");
         setsuccess(response.data);
-        // setInterval(() => {
-        //   "Redirecting to home page in 3 seconds";
-        // }, 3000);
       })
       .catch((error) => {
         setsuccess("oops something went wrong...");
@@ -40,6 +40,7 @@ const EmailContextProvider = (props) => {
         addreceiveremail,
         submitdetailstoserver,
         success,
+        setsuccess,
       }}
     >
       {props.children}
