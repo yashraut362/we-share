@@ -84,7 +84,7 @@ const Finalscreen = ({ link }) => {
           }}
         >
           <h2 className="text-center py-1 pb-4 font-semibold text-lg">
-            Add receiver's info
+            Add receiver&apos;s info
           </h2>
           <div className="flex flex-col space-y-5">
             <div className="flex items-center space-x-3 ">
