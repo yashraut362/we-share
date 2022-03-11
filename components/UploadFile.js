@@ -1,7 +1,7 @@
 import React, { useContext } from "react";
 import Image from "next/image";
-import Navbar from "./navbar";
-import { FileContext } from "../context/FileContext";
+import Navbar from "./Navbar.js";
+import { FileContext } from "../context/FileContext.js";
 
 const UploadFile = () => {
   const { file, changefile, upload } = useContext(FileContext);

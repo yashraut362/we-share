@@ -1,6 +1,6 @@
 import Image from "next/image";
 import React, { useContext } from "react";
-import Navbar from "./navbar";
+import Navbar from "./Navbar.js";
 import { FileContext } from "../context/FileContext";
 
 const Fileselector = () => {

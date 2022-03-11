@@ -5,7 +5,7 @@ import {
 } from "react-circular-progressbar";
 import "react-circular-progressbar/dist/styles.css";
 import { easeQuadInOut } from "d3-ease";
-import AnimatedProgressProvider from "./AnimatedProgressProvider";
+import AnimatedProgressProvider from "./AnimatedProgressProvider.js";
 
 const RounedProgressbar = (props) => {
   return (

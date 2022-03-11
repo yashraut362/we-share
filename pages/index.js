@@ -1,5 +1,5 @@
-import EmailContextProvider from "../context/EmailContext";
-import FileContextProvider from "../context/FileContext";
+import EmailContextProvider from "../context/EmailContext.js";
+import FileContextProvider from "../context/FileContext.js";
 import Sharecard from "../components/Sharecard.js";
 
 export default function Home() {

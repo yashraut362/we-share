@@ -1,9 +1,9 @@
 import React, { useContext, useState } from "react";
-import Finalscreen from "./Finalscreen";
-import { FileContext } from "../context/FileContext";
-import Fileselector from "./Fileselector";
-import UploadFile from "./UploadFile";
-import Progress from "./Progress";
+import Finalscreen from "./Finalscreen.js";
+import { FileContext } from "../context/FileContext.js";
+import Fileselector from "./Fileselector.js";
+import UploadFile from "./UploadFile.js";
+import Progress from "./Progress.js";
 
 const Sharecard = () => {
   const { file, progress, showprogress, link } = useContext(FileContext);

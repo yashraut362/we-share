@@ -1,7 +1,7 @@
 import Image from "next/image";
 import { useState, useContext } from "react";
-import { FileContext } from "../context/FileContext";
-import { EmailContext } from "../context/EmailContext";
+import { FileContext } from "../context/FileContext.js";
+import { EmailContext } from "../context/EmailContext.js";
 
 const Finalscreen = ({ link }) => {
   const { changefile, changelink } = useContext(FileContext);

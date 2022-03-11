@@ -1,7 +1,7 @@
 import React, { useContext } from "react";
-import Navbar from "./navbar";
-import { FileContext } from "../context/FileContext";
-import RounedProgressbar from "./widget/RounedProgressbar";
+import Navbar from "./Navbar.js";
+import { FileContext } from "../context/FileContext.js";
+import RounedProgressbar from "./widget/RounedProgressbar.js";
 
 const Progress = () => {
   const { progress } = useContext(FileContext);
