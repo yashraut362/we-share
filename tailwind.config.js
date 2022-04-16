@@ -6,6 +6,9 @@ module.exports = {
   ],
   theme: {
     extend: {
+      backgroundImage: {
+        team: "url('../public/assets/images/Team.png')",
+      },
       fontFamily: {
         sans: ["Poppins", ...defaultTheme.fontFamily.sans],
       },
@@ -14,6 +17,7 @@ module.exports = {
         105: "32rem",
         110: "40rem",
         "80vh": "80vh",
+        "120vh": "120vh",
       },
       width: {
         102: "28rem",
